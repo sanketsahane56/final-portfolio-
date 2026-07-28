@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Control Panel | Sanket Sahane</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: #070914;
+      color: #fff;
+      min-height: 100vh;
+      font-family: 'Plus Jakarta Sans', 'Poppins', sans-serif;
+      padding-top: 85px;
+    }
+
+    .admin-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 75px;
+      background: rgba(7, 9, 20, 0.95);
+      backdrop-filter: blur(20px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 5%;
+      z-index: 1000;
+      border-bottom: 1px solid var(--glass-border);
+      box-shadow: 0 4px 20px rgba(0, 240, 255, 0.15);
+    }
+
+    .admin-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--neon-cyan);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .admin-nav-actions {
+      display: flex;
+      gap: 12px;
+    }
+
+    .admin-btn {
+      padding: 8px 18px;
+      border-radius: 12px;
+      border: 1px solid var(--neon-cyan);
+      background: transparent;
+      color: var(--neon-cyan);
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .admin-btn:hover {
+      background: var(--neon-cyan);
+      color: #050b14;
+      box-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
+    }
+
+    .admin-btn-danger {
+      border-color: #ff4757;
+      color: #ff4757;
+    }
+
+    .admin-btn-danger:hover {
+      background: #ff4757;
+      color: #fff;
+      box-shadow: 0 0 15px #ff4757;
+    }
+
+    .admin-container {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 30px;
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      border-radius: 24px;
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .admin-tabs {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 30px;
+      border-bottom: 1px solid var(--glass-border);
+      padding-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      padding: 10px 20px;
+      background: transparent;
+      border: 1px solid transparent;
+      border-radius: 12px;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tab-btn.active {
+      color: var(--neon-cyan);
+      background: rgba(0, 240, 255, 0.1);
+      border-color: var(--glass-border);
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .form-group.full-width {
+      grid-column: span 2;
+    }
+
+    .form-group label {
+      font-weight: 700;
+      color: var(--neon-cyan);
+      font-size: 0.92rem;
+    }
+
+    .form-group input, .form-group textarea {
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--glass-border);
+      background: rgba(7, 9, 20, 0.85);
+      color: #fff;
+      font-size: 0.95rem;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    .form-group input:focus, .form-group textarea:focus {
+      border-color: var(--neon-cyan);
+      box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+    }
+
+    .project-preview-img {
+      max-width: 160px;
+      max-height: 110px;
+      border-radius: 12px;
+      object-fit: cover;
+      margin-top: 10px;
+      display: none;
+      border: 1px solid var(--neon-cyan);
+    }
+
+    .projects-admin-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .admin-proj-card {
+      background: rgba(13, 17, 36, 0.9);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+      transition: 0.3s;
+    }
+
+    .admin-proj-card:hover {
+      border-color: var(--neon-cyan);
+      box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+    }
+
+    .admin-proj-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .admin-proj-card h4 {
+      color: #fff;
+      margin: 8px 0 4px 0;
+      font-size: 1.1rem;
+    }
+
+    .admin-proj-card p {
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      margin: 0;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .admin-card-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    .success-toast {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: var(--neon-cyan);
+      color: #050b14;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-weight: 800;
+      box-shadow: 0 0 25px rgba(0, 240, 255, 0.6);
+      display: none;
+      z-index: 2000;
+      animation: fadeInUp 0.4s ease;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .form-grid { grid-template-columns: 1fr; }
+      .form-group.full-width { grid-column: span 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Auth Guard Script -->
+  <script>
+    if (sessionStorage.getItem("adminLoggedIn") !== "true") {
+      alert("Unauthorized Access! Please log in from the website.");
+      window.location.href = "index.html";
+    }
+  </script>
+
+  <!-- Top Bar -->
+  <header class="admin-header">
+    <div class="admin-title">
+      <i class="fa-solid fa-user-gear"></i> Sanket's AI & Data Science Admin Suite
+    </div>
+    <div class="admin-nav-actions">
+      <a href="index.html" class="admin-btn"><i class="fa-solid fa-globe"></i> View Website</a>
+      <button onclick="logoutAdmin()" class="admin-btn admin-btn-danger"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+    </div>
+  </header>
+
+  <div class="admin-container">
+    <div class="admin-tabs">
+      <button class="tab-btn active" onclick="switchTab('projects')"><i class="fa-solid fa-folder-open"></i> Projects</button>
+      <button class="tab-btn" onclick="switchTab('profile')"><i class="fa-solid fa-id-card"></i> Profile Details</button>
+      <button class="tab-btn" onclick="switchTab('certs')"><i class="fa-solid fa-certificate"></i> Certifications</button>
+      <button class="tab-btn" onclick="switchTab('security')"><i class="fa-solid fa-key"></i> Password & Security</button>
+    </div>
+
+    <!-- PROJECTS TAB -->
+    <div id="projects-tab" class="tab-content active">
+      <h3 style="color:var(--neon-cyan); margin-bottom:15px;"><i class="fa-solid fa-plus-circle"></i> Add / Edit Project</h3>
+      
+      <form id="add-project-form" onsubmit="handleAddProject(event)">
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Project Title *</label>
+            <input type="text" id="proj-title" placeholder="e.g. Interactive Resume Creator" required>
+          </div>
+          
+          <div class="form-group">
+            <label>Project Demo / GitHub Link *</label>
+            <input type="url" id="proj-link" placeholder="e.g. https://github.com/sanketsahane56/project" required>
+          </div>
+
+          <div class="form-group full-width">
+            <label>Project Description *</label>
+            <textarea id="proj-desc" rows="3" placeholder="Briefly describe what this project does..." required></textarea>
+          </div>
+
+          <div class="form-group full-width">
+            <label>Project Image (Upload File or Enter Image Path/URL)</label>
+            <input type="file" id="proj-file" accept="image/*" onchange="previewProjectImage(event)">
+            <input type="text" id="proj-img-url" placeholder="Or enter image filename (e.g. resumeweb.png)" style="margin-top:8px;">
+            <img id="img-preview" class="project-preview-img" alt="Preview">
+          </div>
+        </div>
+
+        <button type="submit" class="admin-btn" style="background:var(--neon-cyan); color:#050b14; width:100%; justify-content:center; font-size:1rem; padding:12px;">
+          <i class="fa-solid fa-plus"></i> Save Project to Portfolio
+        </button>
+      </form>
+
+      <hr style="border:0; border-top:1px solid var(--glass-border); margin:35px 0;">
+
+      <h3 style="color:var(--neon-cyan); margin-bottom:15px;"><i class="fa-solid fa-list-check"></i> Existing Projects (<span id="proj-count">0</span>)</h3>
+      <div id="admin-projects-list" class="projects-admin-grid">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+
+    <!-- PROFILE DETAILS TAB -->
+    <div id="profile-tab" class="tab-content">
+      <h3 style="color:var(--neon-cyan); margin-bottom:15px;"><i class="fa-solid fa-user-pen"></i> Edit Personal & Professional Profile</h3>
+      
+      <form id="edit-profile-form" onsubmit="handleSaveProfile(event)">
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" id="prof-name" placeholder="Sanket Sahane" required>
+          </div>
+
+          <div class="form-group">
+            <label>Contact Email</label>
+            <input type="email" id="prof-email" placeholder="sanketsahane56@gmail.com" required>
+          </div>
+
+          <div class="form-group full-width">
+            <label>Tagline / Typewriter Subtitle</label>
+            <input type="text" id="prof-tagline" placeholder="Artificial Intelligence Engineer | Machine Learning Specialist | Full Stack Developer" required>
+          </div>
+
+          <div class="form-group">
+            <label>Location</label>
+            <input type="text" id="prof-location" placeholder="Pune, Maharashtra, India">
+          </div>
+
+          <div class="form-group">
+            <label>Primary Focus</label>
+            <input type="text" id="prof-expertise" placeholder="AI Models & Full Stack">
+          </div>
+
+          <div class="form-group full-width">
+            <label>Skills Badges (comma-separated)</label>
+            <input type="text" id="prof-badges" placeholder="Python, PyTorch, TensorFlow, Computer Vision, Deep Learning, React.js, SQL">
+          </div>
+        </div>
+
+        <div style="display:flex; gap:15px; margin-top:15px;">
+          <button type="submit" class="admin-btn" style="background:var(--neon-cyan); color:#050b14; flex:1; justify-content:center; padding:12px;">
+            <i class="fa-solid fa-floppy-disk"></i> Save Profile Details
+          </button>
+          <button type="button" onclick="resetProfileDefaults()" class="admin-btn admin-btn-danger">
+            <i class="fa-solid fa-rotate-left"></i> Reset Defaults
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- CERTIFICATIONS TAB -->
+    <div id="certs-tab" class="tab-content">
+      <h3 style="color:var(--neon-cyan); margin-bottom:15px;"><i class="fa-solid fa-certificate"></i> Manage Certifications</h3>
+      
+      <form id="add-cert-form" onsubmit="handleAddCert(event)">
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Certificate Title *</label>
+            <input type="text" id="cert-title" placeholder="e.g. SQL For Data Analytics" required>
+          </div>
+
+          <div class="form-group">
+            <label>Certificate Image / Document File *</label>
+            <input type="text" id="cert-img" placeholder="e.g. SQL.jpg or data science.png" required>
+          </div>
+
+          <div class="form-group full-width">
+            <label>Description / Issuer Info *</label>
+            <textarea id="cert-desc" rows="2" placeholder="Hands-on SQL training with analytics projects..." required></textarea>
+          </div>
+        </div>
+
+        <button type="submit" class="admin-btn" style="background:var(--neon-cyan); color:#050b14; width:100%; justify-content:center; padding:12px;">
+          <i class="fa-solid fa-plus"></i> Add Certification
+        </button>
+      </form>
+
+      <hr style="border:0; border-top:1px solid var(--glass-border); margin:35px 0;">
+
+      <h3 style="color:var(--neon-cyan); margin-bottom:15px;"><i class="fa-solid fa-list"></i> Existing Certifications</h3>
+      <div id="admin-certs-list" class="projects-admin-grid">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+
+    <!-- PASSWORD & SECURITY TAB -->
+    <div id="security-tab" class="tab-content">
+      <h3 style="color:var(--neon-cyan); margin-bottom:15px;"><i class="fa-solid fa-shield-halved"></i> Change Admin Password</h3>
+      
+      <form id="change-password-form" onsubmit="handleChangePasswordAdmin(event)">
+        <div class="form-grid">
+          <div class="form-group full-width">
+            <label>Current Password *</label>
+            <input type="password" id="admin-curr-pass" placeholder="Enter current password" required>
+          </div>
+
+          <div class="form-group">
+            <label>New Password *</label>
+            <input type="password" id="admin-new-pass" placeholder="New password" required minlength="4">
+          </div>
+
+          <div class="form-group">
+            <label>Confirm New Password *</label>
+            <input type="password" id="admin-confirm-pass" placeholder="Confirm new password" required minlength="4">
+          </div>
+        </div>
+
+        <button type="submit" class="admin-btn" style="background:var(--neon-cyan); color:#050b14; width:100%; justify-content:center; padding:12px; margin-top:15px;">
+          <i class="fa-solid fa-key"></i> Update Admin Password
+        </button>
+      </form>
+    </div>
+
+  </div>
+
+  <div id="toast" class="success-toast">Changes Saved Successfully!</div>
+
+  <script src="script.js"></script>
+  <script>
+    function switchTab(tabName) {
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+      
+      if (tabName === 'projects') {
+        document.querySelectorAll('.tab-btn')[0].classList.add('active');
+        document.getElementById('projects-tab').classList.add('active');
+      } else if (tabName === 'profile') {
+        document.querySelectorAll('.tab-btn')[1].classList.add('active');
+        document.getElementById('profile-tab').classList.add('active');
+      } else if (tabName === 'certs') {
+        document.querySelectorAll('.tab-btn')[2].classList.add('active');
+        document.getElementById('certs-tab').classList.add('active');
+        loadAdminCerts();
+      } else if (tabName === 'security') {
+        document.querySelectorAll('.tab-btn')[3].classList.add('active');
+        document.getElementById('security-tab').classList.add('active');
+      }
+    }
+
+    function handleChangePasswordAdmin(e) {
+      e.preventDefault();
+      const curr = document.getElementById('admin-curr-pass').value;
+      const newP = document.getElementById('admin-new-pass').value;
+      const confP = document.getElementById('admin-confirm-pass').value;
+      const valid = window.getSavedAdminPassword ? window.getSavedAdminPassword() : (localStorage.getItem("admin_password") || "sanket9021");
+
+      if (curr !== valid) {
+        alert("❌ Current password does not match!");
+        return;
+      }
+      if (newP !== confP) {
+        alert("❌ New passwords do not match!");
+        return;
+      }
+      localStorage.setItem("admin_password", newP);
+      document.getElementById('change-password-form').reset();
+      showToast("🔒 Admin Password Updated Successfully!");
+    }
+
+    let projectImageData = "";
+    function previewProjectImage(e) {
+      const file = e.target.files[0];
+      const preview = document.getElementById('img-preview');
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(evt) {
+          projectImageData = evt.target.result;
+          preview.src = projectImageData;
+          preview.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", async () => {
+      await fetchPortfolioProjectsFromDB();
+      await fetchPortfolioProfileFromDB();
+      loadAdminProjects();
+      loadAdminProfileForm();
+    });
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.style.display = 'block';
+      setTimeout(() => { toast.style.display = 'none'; }, 3000);
+    }
+
+    function logoutAdmin() {
+      sessionStorage.removeItem("adminLoggedIn");
+      window.location.href = "index.html";
+    }
+
+    function loadAdminProjects() {
+      const projects = getPortfolioProjects();
+      const listEl = document.getElementById('admin-projects-list');
+      document.getElementById('proj-count').textContent = projects.length;
+      listEl.innerHTML = "";
+
+      if (projects.length === 0) {
+        listEl.innerHTML = `<p style="color:#888; grid-column:span 3;">No projects found.</p>`;
+        return;
+      }
+
+      projects.forEach((proj) => {
+        const card = document.createElement('div');
+        card.className = 'admin-proj-card';
+        card.innerHTML = `
+          <div>
+            <img src="${proj.img || 'profileweb.png'}" alt="${proj.title}" onerror="this.src='profileweb.png'">
+            <h4>${proj.title}</h4>
+            <p>${proj.desc}</p>
+          </div>
+          <div class="admin-card-actions">
+            <a href="${proj.link || '#'}" target="_blank" style="color:var(--neon-cyan); font-size:0.85rem;"><i class="fa-solid fa-arrow-up-right-from-square"></i> Open</a>
+            <button onclick="removeProject('${proj.id}')" class="admin-btn admin-btn-danger" style="padding:4px 12px; font-size:0.8rem;">
+              <i class="fa-solid fa-trash"></i> Remove
+            </button>
+          </div>
+        `;
+        listEl.appendChild(card);
+      });
+    }
+
+    async function handleAddProject(e) {
+      e.preventDefault();
+      const title = document.getElementById('proj-title').value.trim();
+      const link = document.getElementById('proj-link').value.trim();
+      const desc = document.getElementById('proj-desc').value.trim();
+      const urlImg = document.getElementById('proj-img-url').value.trim();
+
+      const finalImg = projectImageData || urlImg || "profileweb.png";
+
+      const newProj = { title, desc, link, img: finalImg };
+      await addProjectToDB(newProj);
+
+      document.getElementById('add-project-form').reset();
+      document.getElementById('img-preview').style.display = 'none';
+      projectImageData = "";
+
+      loadAdminProjects();
+      showToast("✨ Project Saved to Portfolio!");
+    }
+
+    async function removeProject(projId) {
+      if (confirm("Are you sure you want to delete this project?")) {
+        await deleteProjectFromDB(projId);
+        loadAdminProjects();
+        showToast("🗑 Project Removed!");
+      }
+    }
+
+    function loadAdminProfileForm() {
+      const prof = getPortfolioProfile();
+      document.getElementById('prof-name').value = prof.name || "Sanket Sahane";
+      document.getElementById('prof-email').value = prof.email || "sanketsahane56@gmail.com";
+      document.getElementById('prof-tagline').value = prof.tagline || "";
+      document.getElementById('prof-location').value = prof.location || "";
+      document.getElementById('prof-expertise').value = prof.expertise || "";
+      document.getElementById('prof-badges').value = (prof.badges || []).join(", ");
+    }
+
+    async function handleSaveProfile(e) {
+      e.preventDefault();
+      const badgesStr = document.getElementById('prof-badges').value;
+      const updatedProf = {
+        name: document.getElementById('prof-name').value.trim(),
+        email: document.getElementById('prof-email').value.trim(),
+        tagline: document.getElementById('prof-tagline').value.trim(),
+        location: document.getElementById('prof-location').value.trim(),
+        expertise: document.getElementById('prof-expertise').value.trim(),
+        badges: badgesStr.split(',').map(b => b.trim()).filter(b => b.length > 0)
+      };
+
+      await saveProfileToDB(updatedProf);
+      showToast("💾 Profile Details Saved!");
+    }
+
+    function getAdminCerts() {
+      const saved = localStorage.getItem("portfolio_certs");
+      return saved ? JSON.parse(saved) : [
+        { id: 1, title: "SQL For Data Analytics", desc: "Hands-on SQL training with analytics projects.", img: "SQL.jpg" },
+        { id: 2, title: "SQL for Data Science", desc: "Advanced SQL queries and database analysis.", img: "data science.png" },
+        { id: 3, title: "Generative AI Fundamentals", desc: "Introduction to modern AI models and prompt engineering.", img: "GI.png" }
+      ];
+    }
+
+    function loadAdminCerts() {
+      const certs = getAdminCerts();
+      const listEl = document.getElementById('admin-certs-list');
+      if (!listEl) return;
+      listEl.innerHTML = "";
+
+      certs.forEach(cert => {
+        const card = document.createElement('div');
+        card.className = 'admin-proj-card';
+        card.innerHTML = `
+          <div>
+            <img src="${cert.img}" alt="${cert.title}" onerror="this.src='profileweb.png'">
+            <h4>${cert.title}</h4>
+            <p>${cert.desc}</p>
+          </div>
+          <div class="admin-card-actions">
+            <button onclick="removeCert(${cert.id})" class="admin-btn admin-btn-danger" style="padding:4px 12px; font-size:0.8rem;">
+              <i class="fa-solid fa-trash"></i> Remove
+            </button>
+          </div>
+        `;
+        listEl.appendChild(card);
+      });
+    }
+
+    function handleAddCert(e) {
+      e.preventDefault();
+      const title = document.getElementById('cert-title').value.trim();
+      const img = document.getElementById('cert-img').value.trim();
+      const desc = document.getElementById('cert-desc').value.trim();
+
+      const certs = getAdminCerts();
+      certs.push({ id: Date.now(), title, img, desc });
+      localStorage.setItem("portfolio_certs", JSON.stringify(certs));
+
+      document.getElementById('add-cert-form').reset();
+      loadAdminCerts();
+      showToast("📜 Certification Added!");
+    }
+
+    function removeCert(id) {
+      if (confirm("Delete this certification?")) {
+        const certs = getAdminCerts().filter(c => c.id != id);
+        localStorage.setItem("portfolio_certs", JSON.stringify(certs));
+        loadAdminCerts();
+        showToast("🗑 Certification Removed!");
+      }
+    }
+
+    async function resetProfileDefaults() {
+      if (confirm("Reset portfolio to original default records?")) {
+        await resetDBToDefaults();
+        loadAdminProfileForm();
+        loadAdminProjects();
+        showToast("🔄 Reset to Defaults Complete!");
+      }
+    }
+  </script>
+</body>
+</html>

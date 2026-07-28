@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sanket Sahane - Resume & Curriculum Vitae. Artificial Intelligence & Software Engineer qualifications, experience, and projects.">
+  <title>Resume | Sanket Sahane - AI & Software Engineer</title>
+  
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- AOS Animation -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <style>
+    .pdf-frame-wrapper {
+      width: 100%;
+      height: 600px;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+      background: rgba(13, 17, 36, 0.8);
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Ambient Glow Circles -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="ambient-glow glow-3"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar-expensive">
+    <div class="logo-box">
+      <div class="nav-logo">
+        <img src="sanket1.png" alt="Sanket Sahane Logo" onerror="this.src='profileweb.png'">
+      </div>
+      <span class="logo-text">Sanket Sahane</span>
+      <span class="logo-badge">AI & Data Science</span>
+    </div>
+
+    <div class="menu-toggle">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+      <li><a href="about.html"><i class="fa-solid fa-user"></i> About</a></li>
+      <li><a href="suu.html"><i class="fa-solid fa-code"></i> Skills</a></li>
+      <li><a href="project.html"><i class="fa-solid fa-diagram-project"></i> Projects</a></li>
+      <li><a href="AIdemo.html"><i class="fa-solid fa-robot"></i> AI Demo</a></li>
+      <li><a href="techstack.html"><i class="fa-solid fa-layer-group"></i> Techstack</a></li>
+      <li><a href="Certifications.html"><i class="fa-solid fa-certificate"></i> Certifications</a></li>
+      <li><a href="resume.html" class="active"><i class="fa-solid fa-file-pdf"></i> Resume</a></li>
+      <li><a href="contact.html"><i class="fa-solid fa-paper-plane"></i> Contact</a></li>
+      <li class="admin-nav-item"><a href="#" onclick="openAdminModal(); return false;" class="admin-nav-btn"><i class="fa-solid fa-lock"></i> Admin</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="hero-expensive" style="min-height: auto; padding-top: 140px; padding-bottom: 30px;">
+    <div class="section-header" data-aos="fade-up" style="margin-bottom: 0;">
+      <span class="section-subtitle"><i class="fa-solid fa-file-pdf"></i> Official Curriculum Vitae</span>
+      <h2 class="section-title">Professional <span class="gradient-text">Resume</span></h2>
+      <p class="section-desc">Comprehensive overview of academic background, core skills, and AI engineering projects</p>
+    </div>
+  </section>
+
+  <!-- Main Resume Content Section -->
+  <section style="padding-top: 20px;">
+    
+    <!-- Top Action Buttons -->
+    <div style="display: flex; justify-content: center; gap: 1.2rem; margin-bottom: 3rem;" data-aos="fade-up">
+      <a href="sanketr.pdf" download="Sanket_Sahane_Resume.pdf" class="btn-expensive primary-btn">
+        <i class="fa-solid fa-download"></i> Download PDF Resume
+      </a>
+      <a href="contact.html" class="btn-expensive secondary-btn">
+        <i class="fa-solid fa-paper-plane"></i> Contact for Roles
+      </a>
+    </div>
+
+    <!-- Resume Summary Grid -->
+    <div class="expertise-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.2rem; max-width: 1300px; margin: 0 auto 3.5rem auto;">
+      
+      <!-- Summary Card -->
+      <div class="expertise-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="card-icon-wrapper cyan-glow">
+          <i class="fa-solid fa-user-check"></i>
+        </div>
+        <h3>Professional Summary</h3>
+        <p>Artificial Intelligence & Software Engineer with strong practical experience building machine learning models, computer vision classifiers, and scalable web software.</p>
+        <div style="font-size: 0.85rem; color: var(--neon-cyan); font-weight: 700;">AI / ML & Full Stack Specialization</div>
+      </div>
+
+      <!-- Education Card -->
+      <div class="expertise-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="card-icon-wrapper purple-glow">
+          <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+        <h3>Education</h3>
+        <p style="margin-bottom: 0.5rem;"><strong>B.Tech in Artificial Intelligence</strong></p>
+        <p style="margin-bottom: 0.8rem;">4th Year Undergraduate (2022 - 2026)</p>
+        <div style="font-size: 0.85rem; color: var(--neon-purple); font-weight: 700;">Deep Learning & Data Mining Focus</div>
+      </div>
+
+      <!-- Core Skills Card -->
+      <div class="expertise-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="card-icon-wrapper blue-glow">
+          <i class="fa-solid fa-microchip"></i>
+        </div>
+        <h3>Key Technical Stack</h3>
+        <p>Python, PyTorch, TensorFlow, OpenCV, Scikit-Learn, React.js, JavaScript, SQL, Git & GitHub.</p>
+        <div style="font-size: 0.85rem; color: #00a8ff; font-weight: 700;">AI Frameworks & Web Development</div>
+      </div>
+
+    </div>
+
+    <!-- Embedded PDF Previewer -->
+    <div style="max-width: 1200px; margin: 0 auto 90px auto;" data-aos="fade-up">
+      <div class="section-header" style="margin-bottom: 2rem;">
+        <span class="section-subtitle"><i class="fa-solid fa-eye"></i> Document Preview</span>
+        <h2 class="section-title">Live Resume Document</h2>
+      </div>
+      <div class="pdf-frame-wrapper">
+        <iframe src="sanketr.pdf" width="100%" height="100%" style="border: none;"></iframe>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer-expensive">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <span class="gradient-text">Sanket Sahane</span>
+        <p>Artificial Intelligence & Software Engineer</p>
+      </div>
+      
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="project.html">Projects</a>
+        <a href="AIdemo.html">AI Demo</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div class="footer-copy">
+        <p>© 2026 Sanket Sahane. Designed for AI & Software Innovation.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true,
+      easing: 'ease-out-cubic'
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* ===== Animated Background ===== */
+.animated-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    120deg,
+    #0b3c6d,
+    #0e6aa8,
+    #12a4d9,
+    #0e6aa8,
+    #0b3c6d
+  );
+  background-size: 300% 300%;
+  animation: gradientFlow 18s ease-in-out infinite;
+}
+
+/* Animation */
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ===== HERO CONTENT ===== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 8%;
+  color: white;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+}
+
+.hero h1 span {
+  color: #1ffcff;
+  text-shadow: 0 0 20px rgba(31,252,255,0.7);
+}
+
+.hero p {
+  margin-top: 10px;
+  font-size: 1.1rem;
+  opacity: 0.85;
+}

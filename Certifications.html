@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sanket Sahane - Professional Certifications in SQL for Data Analytics, Generative AI Fundamentals, and Machine Learning.">
+  <title>Certifications | Sanket Sahane - AI & Software Engineer</title>
+  
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- AOS Animation -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <style>
+    .cert-fullscreen-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(5, 7, 15, 0.95);
+      backdrop-filter: blur(20px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+    }
+    .cert-fullscreen-modal.active {
+      display: flex;
+    }
+    .cert-fullscreen-modal img {
+      max-width: 85%;
+      max-height: 85vh;
+      border-radius: 16px;
+      box-shadow: 0 0 40px rgba(0, 240, 255, 0.4);
+      border: 1px solid var(--glass-border);
+    }
+    .cert-close-btn {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      font-size: 2.5rem;
+      color: #fff;
+      cursor: pointer;
+    }
+    .cert-close-btn:hover {
+      color: var(--neon-cyan);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Ambient Glow Circles -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="ambient-glow glow-3"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar-expensive">
+    <div class="logo-box">
+      <div class="nav-logo">
+        <img src="sanket1.png" alt="Sanket Sahane Logo" onerror="this.src='profileweb.png'">
+      </div>
+      <span class="logo-text">Sanket Sahane</span>
+      <span class="logo-badge">AI & Data Science</span>
+    </div>
+
+    <div class="menu-toggle">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+      <li><a href="about.html"><i class="fa-solid fa-user"></i> About</a></li>
+      <li><a href="suu.html"><i class="fa-solid fa-code"></i> Skills</a></li>
+      <li><a href="project.html"><i class="fa-solid fa-diagram-project"></i> Projects</a></li>
+      <li><a href="AIdemo.html"><i class="fa-solid fa-robot"></i> AI Demo</a></li>
+      <li><a href="techstack.html"><i class="fa-solid fa-layer-group"></i> Techstack</a></li>
+      <li><a href="Certifications.html" class="active"><i class="fa-solid fa-certificate"></i> Certifications</a></li>
+      <li><a href="resume.html"><i class="fa-solid fa-file-pdf"></i> Resume</a></li>
+      <li><a href="contact.html"><i class="fa-solid fa-paper-plane"></i> Contact</a></li>
+      <li class="admin-nav-item"><a href="#" onclick="openAdminModal(); return false;" class="admin-nav-btn"><i class="fa-solid fa-lock"></i> Admin</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="hero-expensive" style="min-height: auto; padding-top: 140px; padding-bottom: 30px;">
+    <div class="section-header" data-aos="fade-up" style="margin-bottom: 0;">
+      <span class="section-subtitle"><i class="fa-solid fa-certificate"></i> Verified Credentials & Qualifications</span>
+      <h2 class="section-title">Professional <span class="gradient-text">Certifications</span></h2>
+      <p class="section-desc">Certified specialization across Data Analytics, Generative AI, and Machine Learning</p>
+    </div>
+  </section>
+
+  <!-- Certifications Grid Section -->
+  <section style="padding-top: 20px; padding-bottom: 90px;">
+    <div class="showcase-grid" style="grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 2.2rem; max-width: 1300px; margin: 0 auto;">
+      
+      <!-- Cert 1 -->
+      <div class="showcase-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="showcase-img-box" style="height: 200px; cursor: pointer;" onclick="openCertModal('SQL.jpg')">
+          <img src="SQL.jpg" alt="SQL For Data Analytics Certificate" onerror="this.src='profileweb.png'">
+          <div class="showcase-overlay">
+            <span class="overlay-btn"><i class="fa-solid fa-expand"></i> View High-Res</span>
+          </div>
+        </div>
+        <div class="showcase-info">
+          <span class="showcase-tag">Database Analytics</span>
+          <h3>SQL For Data Analytics</h3>
+          <p>Comprehensive hands-on training with complex database queries, data manipulation, and analytics projects.</p>
+        </div>
+      </div>
+
+      <!-- Cert 2 -->
+      <div class="showcase-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="showcase-img-box" style="height: 200px; cursor: pointer;" onclick="openCertModal('data science.png')">
+          <img src="data science.png" alt="SQL for Data Science Certificate" onerror="this.src='profileweb.png'">
+          <div class="showcase-overlay">
+            <span class="overlay-btn"><i class="fa-solid fa-expand"></i> View High-Res</span>
+          </div>
+        </div>
+        <div class="showcase-info">
+          <span class="showcase-tag">Data Science</span>
+          <h3>SQL for Data Science Specialization</h3>
+          <p>Advanced SQL data extraction, statistical aggregation, and relational database modeling for data science pipelines.</p>
+        </div>
+      </div>
+
+      <!-- Cert 3 -->
+      <div class="showcase-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="showcase-img-box" style="height: 200px; cursor: pointer;" onclick="openCertModal('GI.png')">
+          <img src="GI.png" alt="Generative AI Fundamentals Certificate" onerror="this.src='profileweb.png'">
+          <div class="showcase-overlay">
+            <span class="overlay-btn"><i class="fa-solid fa-expand"></i> View High-Res</span>
+          </div>
+        </div>
+        <div class="showcase-info">
+          <span class="showcase-tag">Generative AI</span>
+          <h3>Generative AI Fundamentals</h3>
+          <p>Certification covering Large Language Models (LLMs), prompt engineering strategies, and generative neural architectures.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Fullscreen Modal View -->
+  <div id="cert-modal" class="cert-fullscreen-modal" onclick="closeCertModal()">
+    <span class="cert-close-btn" onclick="closeCertModal()">&times;</span>
+    <img id="cert-modal-img" src="" alt="Certificate Preview">
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer-expensive">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <span class="gradient-text">Sanket Sahane</span>
+        <p>Artificial Intelligence & Software Engineer</p>
+      </div>
+      
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="project.html">Projects</a>
+        <a href="AIdemo.html">AI Demo</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div class="footer-copy">
+        <p>© 2026 Sanket Sahane. Designed for AI & Software Innovation.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true,
+      easing: 'ease-out-cubic'
+    });
+
+    function openCertModal(src) {
+      const modal = document.getElementById('cert-modal');
+      const img = document.getElementById('cert-modal-img');
+      if (modal && img) {
+        img.src = src;
+        modal.classList.add('active');
+      }
+    }
+
+    function closeCertModal() {
+      const modal = document.getElementById('cert-modal');
+      if (modal) {
+        modal.classList.remove('active');
+      }
+    }
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeCertModal();
+    });
+  </script>
+</body>
+</html>

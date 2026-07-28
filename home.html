@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sanket Sahane - Artificial Intelligence & Software Engineer specializing in Deep Learning, Computer Vision, Neural Networks, and Scalable Web Systems.">
+  <meta name="keywords" content="Sanket Sahane, AI Engineer, Software Engineer, Machine Learning, Computer Vision, PyTorch, TensorFlow, Python, React, Deep Learning">
+  <meta name="author" content="Sanket Sahane">
+  <title>Sanket Sahane | AI & Software Engineer</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- AOS Animation -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Typed.js -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+</head>
+
+<body>
+
+  <!-- Background Ambient Glow & Neural Mesh Overlay -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="ambient-glow glow-3"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar-expensive">
+    <div class="logo-box">
+      <div class="nav-logo">
+        <img src="sanket1.png" alt="Sanket Sahane Logo">
+      </div>
+      <span class="logo-text">Sanket Sahane</span>
+      <span class="logo-badge">AI / SWE</span>
+    </div>
+
+    <div class="menu-toggle" id="menu-toggle-btn">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="index.html" class="active"><i class="fa-solid fa-house"></i> Home</a></li>
+      <li><a href="about.html"><i class="fa-solid fa-user"></i> About</a></li>
+      <li><a href="suu.html"><i class="fa-solid fa-code"></i> Skills</a></li>
+      <li><a href="project.html"><i class="fa-solid fa-diagram-project"></i> Projects</a></li>
+      <li><a href="AIdemo.html"><i class="fa-solid fa-robot"></i> AI Demo</a></li>
+      <li><a href="techstack.html"><i class="fa-solid fa-layer-group"></i> Techstack</a></li>
+      <li><a href="Certifications.html"><i class="fa-solid fa-certificate"></i> Certifications</a></li>
+      <li><a href="resume.html"><i class="fa-solid fa-file-pdf"></i> Resume</a></li>
+      <li><a href="contact.html"><i class="fa-solid fa-paper-plane"></i> Contact</a></li>
+      <li class="admin-nav-item"><a href="#" onclick="openAdminModal(); return false;" class="admin-nav-btn"><i class="fa-solid fa-lock"></i> Admin</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-expensive" id="home">
+    <div class="hero-container">
+
+      <!-- Left Column: Bio & Identity -->
+      <div class="hero-text-content" data-aos="fade-right">
+        
+        <!-- Live Status Pill -->
+        <div class="hero-status-badge">
+          <span class="status-pulse"></span>
+          <span class="status-text">AI & Data Science Student | Open for Roles</span>
+        </div>
+
+        <!-- Main Headline -->
+        <h1 class="hero-title">
+          Hi, I'm <span class="gradient-text name-highlight">Sanket Sahane</span>
+        </h1>
+
+        <!-- Typewriter Subtitle -->
+        <div class="role-typewriter">
+          <span class="type-prefix">> </span>
+          <span id="typed-headline" class="tagline">AI & Data Science Student | Machine Learning & Analytics Specialist</span>
+        </div>
+
+        <p class="hero-description">
+          Passionate <strong>AI & Data Science Student</strong> specializing in <strong>Machine Learning, Data Analytics, Computer Vision</strong>, and <strong>Intelligent Data Pipelines</strong>. Turning complex data into actionable insights and smart applications.
+        </p>
+
+        <!-- Skill Badges -->
+        <div class="skills-badges hero-badges">
+          <span><i class="fa-brands fa-python"></i> Python</span>
+          <span><i class="fa-solid fa-chart-line"></i> Data Science</span>
+          <span><i class="fa-solid fa-chart-pie"></i> Data Analytics</span>
+          <span><i class="fa-solid fa-brain"></i> Machine Learning</span>
+          <span><i class="fa-solid fa-network-wired"></i> Deep Learning</span>
+          <span><i class="fa-solid fa-database"></i> SQL</span>
+          <span><i class="fa-solid fa-microchip"></i> PyTorch / TensorFlow</span>
+        </div>
+
+        <!-- Metric HUD Cards -->
+        <div class="hero-stats">
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fa-solid fa-brain"></i></div>
+            <div>
+              <span class="stat-num">AI & ML</span>
+              <span class="stat-label">Core Specialization</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fa-solid fa-chart-line"></i></div>
+            <div>
+              <span class="stat-num">99.4%</span>
+              <span class="stat-label">Model Accuracy</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fa-solid fa-cubes"></i></div>
+            <div>
+              <span class="stat-num">15+</span>
+              <span class="stat-label">Systems Built</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Info Boxes -->
+        <div class="info-boxes">
+          <div class="info-box">
+            <p>📍 Location</p>
+            <span>Pune, Maharashtra, India</span>
+          </div>
+          <div class="info-box">
+            <p>💼 Primary Focus</p>
+            <span>AI Models & Full Stack</span>
+          </div>
+          <div class="info-box">
+            <p>✉ Contact Email</p>
+            <span>sanketsahane56@gmail.com</span>
+          </div>
+        </div>
+
+        <!-- Hero Actions -->
+        <div class="hero-actions">
+          <a href="project.html" class="btn-expensive primary-btn">
+            <i class="fa-solid fa-rocket"></i> Explore Projects
+          </a>
+          <a href="AIdemo.html" class="btn-expensive secondary-btn">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Launch AI Demos
+          </a>
+          <a href="resume.html" class="btn-expensive outline-btn">
+            <i class="fa-solid fa-file-arrow-down"></i> Resume
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Futuristic Cyber Frame + Interactive Terminal -->
+      <div class="hero-visual-content" data-aos="fade-left" data-aos-delay="150">
+        
+        <!-- Profile Cyber Container -->
+        <div class="profile-cyber-container">
+          <div class="cyber-ring-outer"></div>
+          <div class="cyber-ring-inner"></div>
+          
+          <div class="profile-image-wrapper">
+            <img src="sanket1.png" alt="Sanket Sahane" class="profile-img" onerror="this.src='profileweb.png'">
+          </div>
+
+          <!-- Floating Badges -->
+          <div class="floating-badge badge-top-right">
+            <i class="fa-solid fa-robot"></i> AI Engineer
+          </div>
+          <div class="floating-badge badge-bottom-left">
+            <i class="fa-solid fa-code-branch"></i> Software Architect
+          </div>
+        </div>
+
+        <!-- Interactive AI Live Terminal Console -->
+        <div class="hero-terminal">
+          <div class="terminal-header">
+            <div class="terminal-dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <span class="terminal-title">sanket@ai-engine:~$ diagnostics</span>
+          </div>
+          <div class="terminal-body" id="terminal-output">
+            <p><span class="term-prompt">sanket@ai-engine:~$</span> initialize --system</p>
+            <p class="term-res"><span class="term-success">[OK]</span> Neural Network Engine Loaded (PyTorch / TensorFlow)</p>
+            <p class="term-res"><span class="term-success">[OK]</span> Computer Vision & Web Pipelines Active</p>
+            <p class="term-res"><span class="term-info">[INFO]</span> Select a command below to inspect stack & diagnostics.</p>
+          </div>
+          <div class="terminal-actions">
+            <button onclick="runTerminalCmd('skills')" class="term-btn"><i class="fa-solid fa-code"></i> Tech Stack</button>
+            <button onclick="runTerminalCmd('models')" class="term-btn"><i class="fa-solid fa-chart-line"></i> Model Matrix</button>
+            <button onclick="runTerminalCmd('bio')" class="term-btn"><i class="fa-solid fa-user-astronaut"></i> Bio</button>
+            <button onclick="runTerminalCmd('contact')" class="term-btn"><i class="fa-solid fa-envelope"></i> Contact</button>
+            <button onclick="runTerminalCmd('demo')" class="term-btn"><i class="fa-solid fa-play"></i> Simulation</button>
+            <button onclick="runTerminalCmd('clear')" class="term-btn"><i class="fa-solid fa-trash"></i> Clear</button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Engineering Domains & Expertise Section -->
+  <section class="expertise-section" id="expertise">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-subtitle"><i class="fa-solid fa-bolt"></i> Core Capabilities</span>
+      <h2 class="section-title">Engineering Domains</h2>
+      <p class="section-desc">Combining cutting-edge Artificial Intelligence research with robust Software Engineering</p>
+    </div>
+
+    <div class="expertise-grid">
+      
+      <!-- Card 1 -->
+      <div class="expertise-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="card-icon-wrapper cyan-glow">
+          <i class="fa-solid fa-brain"></i>
+        </div>
+        <h3>Artificial Intelligence & ML</h3>
+        <p>Designing custom deep neural networks, predictive algorithms, and machine learning models using PyTorch, TensorFlow, and Scikit-Learn.</p>
+        <ul class="card-tags">
+          <li>Deep Learning</li>
+          <li>Neural Networks</li>
+          <li>Transformers</li>
+        </ul>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="expertise-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="card-icon-wrapper purple-glow">
+          <i class="fa-solid fa-eye"></i>
+        </div>
+        <h3>Computer Vision & Imaging</h3>
+        <p>Developing real-time visual recognition systems, image classification, object tracking, and spatial video processing with OpenCV.</p>
+        <ul class="card-tags">
+          <li>OpenCV</li>
+          <li>Object Detection</li>
+          <li>Feature Extraction</li>
+        </ul>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="expertise-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="card-icon-wrapper blue-glow">
+          <i class="fa-solid fa-code"></i>
+        </div>
+        <h3>Scalable Software Engineering</h3>
+        <p>Building high-speed web portals, responsive frontend interfaces, REST APIs, and structured database backends using Python, React, and SQL.</p>
+        <ul class="card-tags">
+          <li>Python</li>
+          <li>React.js</li>
+          <li>Databases & SQL</li>
+        </ul>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="expertise-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="card-icon-wrapper magenta-glow">
+          <i class="fa-solid fa-chart-pie"></i>
+        </div>
+        <h3>Data Science & MLOps</h3>
+        <p>Transforming complex datasets into actionable predictions through feature engineering, statistical evaluation, and model deployment pipelines.</p>
+        <ul class="card-tags">
+          <li>Data Preprocessing</li>
+          <li>Feature Engineering</li>
+          <li>ML Automation</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Featured Showcase Section -->
+  <section class="featured-showcase" id="featured">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-subtitle"><i class="fa-solid fa-layer-group"></i> Innovation Highlights</span>
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-desc">Selected software applications & AI implementations built for performance</p>
+    </div>
+
+    <div class="showcase-grid">
+      
+      <!-- Project 1 -->
+      <div class="showcase-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="showcase-img-box">
+          <img src="resumeweb.png" alt="Resume Creator Website" onerror="this.src='profileweb.png'">
+          <div class="showcase-overlay">
+            <a href="https://sanketsahane56.github.io/resume-creator-/" target="_blank" class="overlay-btn">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i> Open Live App
+            </a>
+          </div>
+        </div>
+        <div class="showcase-info">
+          <span class="showcase-tag">Web Software</span>
+          <h3>Interactive Resume Creator</h3>
+          <p>Full-featured web application allowing users to generate customized, high-converting professional resumes in real-time.</p>
+          <a href="https://sanketsahane56.github.io/resume-creator-/" target="_blank" class="showcase-link">
+            Explore Project <i class="fa-solid fa-chevron-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="showcase-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="showcase-img-box">
+          <img src="profileweb.png" alt="Personal Portfolio Web App">
+          <div class="showcase-overlay">
+            <a href="project.html" class="overlay-btn">
+              <i class="fa-solid fa-circle-info"></i> View Details
+            </a>
+          </div>
+        </div>
+        <div class="showcase-info">
+          <span class="showcase-tag">AI Portfolio</span>
+          <h3>AI Engineer Interactive Portfolio</h3>
+          <p>Glassmorphic web platform featuring live AI terminal diagnostics, dynamic project management database, and admin controls.</p>
+          <a href="project.html" class="showcase-link">
+            Explore Projects <i class="fa-solid fa-chevron-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="showcase-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="showcase-img-box">
+          <img src="data science.png" alt="AI Demos Suite" onerror="this.src='profileweb.png'">
+          <div class="showcase-overlay">
+            <a href="AIdemo.html" class="overlay-btn">
+              <i class="fa-solid fa-robot"></i> Launch AI Suite
+            </a>
+          </div>
+        </div>
+        <div class="showcase-info">
+          <span class="showcase-tag">Artificial Intelligence</span>
+          <h3>AI Playground & Demos Suite</h3>
+          <p>Interactive web environment showcasing conversational AI models, image processing pipelines, and smart algorithm demos.</p>
+          <a href="AIdemo.html" class="showcase-link">
+            Try Demos <i class="fa-solid fa-chevron-right"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Connect Section -->
+  <section class="connect-section" id="connect">
+    <div class="connect-card" data-aos="zoom-in">
+      
+      <div class="connect-header">
+        <span class="connect-badge"><i class="fa-solid fa-comments"></i> Direct Channels</span>
+        <h2>Let's Build Intelligent Systems Together 🚀</h2>
+        <p>Interested in collaborating on AI engineering projects, software development, or research opportunities? Reach out anytime!</p>
+      </div>
+
+      <div class="platform-icons">
+        <a href="https://github.com/sanketsahane56" target="_blank" class="icon github" title="GitHub Profile">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/sanket-sahane-461003332" target="_blank" class="icon linkedin" title="LinkedIn Profile">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+        <a href="mailto:sanketsahane56@gmail.com" onclick="window.open('https://mail.google.com/mail/?view=cm&fs=1&to=sanketsahane56@gmail.com'); return false;" class="icon email" title="Send Email">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+        <a href="https://wa.me/qr/HM2KGGHGGLO3I1" target="_blank" class="icon whatsapp" title="WhatsApp Message">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <a href="https://www.instagram.com/its_sanket.82?igsh=cWVxMmUzc3ducDJ2" target="_blank" class="icon instagram" title="Instagram Profile">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+      </div>
+
+      <div class="connect-actions">
+        <a href="contact.html" class="btn-expensive primary-btn">
+          <i class="fa-solid fa-paper-plane"></i> Send Direct Message
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer-expensive">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <span class="gradient-text">Sanket Sahane</span>
+        <p>Artificial Intelligence & Software Engineer</p>
+      </div>
+      
+      <div class="footer-links">
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="project.html">Projects</a>
+        <a href="AIdemo.html">AI Demo</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div class="footer-copy">
+        <p>© 2026 Sanket Sahane. Designed for AI & Software Innovation.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS Scripts -->
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true,
+      easing: 'ease-out-cubic'
+    });
+  </script>
+
+</body>
+
+</html>

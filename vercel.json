@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "name": "sanket-portfolio",
+  "cleanUrls": true,
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ]
+}

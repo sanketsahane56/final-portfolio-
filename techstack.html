@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sanket Sahane - Complete Technology Stack across Artificial Intelligence, Deep Learning, Computer Vision, Frontend, and Backend Development.">
+  <title>Techstack | Sanket Sahane - AI & Software Engineer</title>
+  
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- AOS Animation -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Background Ambient Glow Circles -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="ambient-glow glow-3"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar-expensive">
+    <div class="logo-box">
+      <div class="nav-logo">
+        <img src="sanket1.png" alt="Sanket Sahane Logo" onerror="this.src='profileweb.png'">
+      </div>
+      <span class="logo-text">Sanket Sahane</span>
+      <span class="logo-badge">AI / SWE</span>
+    </div>
+
+    <div class="menu-toggle">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+      <li><a href="about.html"><i class="fa-solid fa-user"></i> About</a></li>
+      <li><a href="suu.html"><i class="fa-solid fa-code"></i> Skills</a></li>
+      <li><a href="project.html"><i class="fa-solid fa-diagram-project"></i> Projects</a></li>
+      <li><a href="AIdemo.html"><i class="fa-solid fa-robot"></i> AI Demo</a></li>
+      <li><a href="techstack.html" class="active"><i class="fa-solid fa-layer-group"></i> Techstack</a></li>
+      <li><a href="Certifications.html"><i class="fa-solid fa-certificate"></i> Certifications</a></li>
+      <li><a href="resume.html"><i class="fa-solid fa-file-pdf"></i> Resume</a></li>
+      <li><a href="contact.html"><i class="fa-solid fa-paper-plane"></i> Contact</a></li>
+      <li class="admin-nav-item"><a href="#" onclick="openAdminModal(); return false;" class="admin-nav-btn"><i class="fa-solid fa-lock"></i> Admin</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="hero-expensive" style="min-height: auto; padding-top: 140px; padding-bottom: 30px;">
+    <div class="section-header" data-aos="fade-up" style="margin-bottom: 0;">
+      <span class="section-subtitle"><i class="fa-solid fa-layer-group"></i> AI, Data Science & Analytics Tech Stack</span>
+      <h2 class="section-title">Engineering <span class="gradient-text">Tech Stack</span></h2>
+      <p class="section-desc">Data Analytics, Machine Learning algorithms, and software libraries</p>
+    </div>
+  </section>
+
+  <!-- Tech Categories Section -->
+  <section style="padding-top: 20px; padding-bottom: 90px;">
+    <div class="expertise-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.2rem; max-width: 1350px; margin: 0 auto;">
+      
+      <!-- AI / Deep Learning Category -->
+      <div class="expertise-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="card-icon-wrapper cyan-glow">
+          <i class="fa-solid fa-brain"></i>
+        </div>
+        <h3>Artificial Intelligence & ML</h3>
+        <p>Frameworks used for building deep neural networks, image recognition pipelines, and predictive algorithms.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1rem;">
+          <span style="padding: 0.4rem 0.8rem; background: rgba(0, 240, 255, 0.1); border: 1px solid var(--neon-cyan); border-radius: 8px; color: var(--neon-cyan); font-size: 0.85rem; font-weight: 700;">PyTorch</span>
+          <span style="padding: 0.4rem 0.8rem; background: rgba(0, 240, 255, 0.1); border: 1px solid var(--neon-cyan); border-radius: 8px; color: var(--neon-cyan); font-size: 0.85rem; font-weight: 700;">TensorFlow</span>
+          <span style="padding: 0.4rem 0.8rem; background: rgba(0, 240, 255, 0.1); border: 1px solid var(--neon-cyan); border-radius: 8px; color: var(--neon-cyan); font-size: 0.85rem; font-weight: 700;">OpenCV</span>
+          <span style="padding: 0.4rem 0.8rem; background: rgba(0, 240, 255, 0.1); border: 1px solid var(--neon-cyan); border-radius: 8px; color: var(--neon-cyan); font-size: 0.85rem; font-weight: 700;">Scikit-Learn</span>
+        </div>
+      </div>
+
+      <!-- Languages & Core Dev -->
+      <div class="expertise-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="card-icon-wrapper purple-glow">
+          <i class="fa-solid fa-code"></i>
+        </div>
+        <h3>Programming & Scripts</h3>
+        <p>Core programming languages utilized for backend logic, numerical computing, and system development.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1rem;">
+          <span style="padding: 0.4rem 0.8rem; background: rgba(138, 43, 226, 0.1); border: 1px solid var(--neon-purple); border-radius: 8px; color: var(--neon-purple); font-size: 0.85rem; font-weight: 700;">Python 3.x</span>
+          <span style="padding: 0.4rem 0.8rem; background: rgba(138, 43, 226, 0.1); border: 1px solid var(--neon-purple); border-radius: 8px; color: var(--neon-purple); font-size: 0.85rem; font-weight: 700;">C / C++</span>
+          <span style="padding: 0.4rem 0.8rem; background: rgba(138, 43, 226, 0.1); border: 1px solid var(--neon-purple); border-radius: 8px; color: var(--neon-purple); font-size: 0.85rem; font-weight: 700;">Java</span>
+          <span style="padding: 0.4rem 0.8rem; background: rgba(138, 43, 226, 0.1); border: 1px solid var(--neon-purple); border-radius: 8px; color: var(--neon-purple); font-size: 0.85rem; font-weight: 700;">JavaScript</span>
+        </div>
+      </div>
+
+      <!-- Web & Full Stack -->
+      <div class="expertise-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="card-icon-wrapper blue-glow">
+          <i class="fa-solid fa-laptop-code"></i>
+        </div>
+        <h3>Web & Frontend Stack</h3>
+        <p>Tools used to craft modern interactive web apps, user interfaces, and API integrations.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1rem;">
+          <span style="padding: 0.4rem 0.8rem; background: rgba(0, 168, 255, 0.1); border: 1px solid #00a8ff; border-radius: 8px; color: #00a8ff; font-size: 0.85rem; font-weight: 700;">React.js</span>
+          <span style="padding: 0.4rem 0.8rem; background: rgba(0, 168, 255, 0.1); border: 1px solid #00a8ff; border-radius: 8px; color: #00a8ff; font-size: 0.85rem; font-weight: 700;">HTML5 / CSS3</span>
+          <span style="padding: 0.4rem 0.8rem; background: rgba(0, 168, 255, 0.1); border: 1px solid #00a8ff; border-radius: 8px; color: #00a8ff; font-size: 0.85rem; font-weight: 700;">Django</span>
+          <span style="padding: 0.4rem 0.8rem; background: rgba(0, 168, 255, 0.1); border: 1px solid #00a8ff; border-radius: 8px; color: #00a8ff; font-size: 0.85rem; font-weight: 700;">REST APIs</span>
+        </div>
+      </div>
+
+      <!-- Databases & DevOps -->
+      <div class="expertise-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="card-icon-wrapper magenta-glow">
+          <i class="fa-solid fa-server"></i>
+        </div>
+        <h3>Data & Deployment</h3>
+        <p>Database management systems, versioning control, and hosting deployment environments.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1rem;">
+          <span style="padding: 0.4rem 0.8rem; background: rgba(255, 0, 127, 0.1); border: 1px solid var(--neon-pink); border-radius: 8px; color: var(--neon-pink); font-size: 0.85rem; font-weight: 700;">MySQL</span>
+          <span style="padding: 0.4rem 0.8rem; background: rgba(255, 0, 127, 0.1); border: 1px solid var(--neon-pink); border-radius: 8px; color: var(--neon-pink); font-size: 0.85rem; font-weight: 700;">SQLite</span>
+          <span style="padding: 0.4rem 0.8rem; background: rgba(255, 0, 127, 0.1); border: 1px solid var(--neon-pink); border-radius: 8px; color: var(--neon-pink); font-size: 0.85rem; font-weight: 700;">Git & GitHub</span>
+          <span style="padding: 0.4rem 0.8rem; background: rgba(255, 0, 127, 0.1); border: 1px solid var(--neon-pink); border-radius: 8px; color: var(--neon-pink); font-size: 0.85rem; font-weight: 700;">Vercel</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer-expensive">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <span class="gradient-text">Sanket Sahane</span>
+        <p>Artificial Intelligence & Software Engineer</p>
+      </div>
+      
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="suu.html">Skills</a>
+        <a href="project.html">Projects</a>
+        <a href="AIdemo.html">AI Demo</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div class="footer-copy">
+        <p>© 2026 Sanket Sahane. Designed for AI & Software Innovation.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true,
+      easing: 'ease-out-cubic'
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+portfolio.db
+.system_generated/
+*.log
+.DS_Store
