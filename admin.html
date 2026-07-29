@@ -266,12 +266,14 @@
     }
   </script>
 
-  <!-- Top Bar -->
   <header class="admin-header">
     <div class="admin-title">
       <i class="fa-solid fa-user-gear"></i> Sanket's AI & Data Science Admin Suite
     </div>
-    <div class="admin-nav-actions">
+    <div class="admin-nav-actions" style="display:flex; align-items:center; gap:12px;">
+      <button class="theme-toggle-btn" onclick="toggleTheme()" title="Toggle Light/Dark Theme">
+        <i class="fa-solid fa-moon"></i>
+      </button>
       <a href="index.html" class="admin-btn"><i class="fa-solid fa-globe"></i> View Website</a>
       <button onclick="logoutAdmin()" class="admin-btn admin-btn-danger"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
     </div>
