@@ -776,10 +776,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   // Mobile nav drawer toggle & Backdrop overlay management
-  const toggle = document.querySelector(".menu-toggle");
-  const navLinks = document.querySelector(".nav-links");
-  
-  // Ensure backdrop overlay element exists
   let overlay = document.querySelector(".nav-overlay");
   if (!overlay) {
     overlay = document.createElement("div");
@@ -787,92 +783,110 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.appendChild(overlay);
   }
 
-  function closeMobileMenu() {
-    if (navLinks) navLinks.classList.remove("active");
-    if (overlay) overlay.classList.remove("active");
-    document.body.classList.remove("menu-open");
-    if (toggle) {
-      const icon = toggle.querySelector("i");
-      if (icon) {
-        icon.className = "fa-solid fa-bars";
-      }
-    }
-  }
+  window.closeMobileMenu = function() {
+    const navLinks = document.querySelector(".nav-links");
+    const navOverlay = document.querySelector(".nav-overlay");
+    const toggles = document.querySelectorAll(".menu-toggle, #menu-toggle-btn");
 
-  function toggleMobileMenu() {
+    if (navLinks) navLinks.classList.remove("active");
+    if (navOverlay) navOverlay.classList.remove("active");
+    document.body.classList.remove("menu-open");
+
+    toggles.forEach(t => {
+      const icon = t.querySelector("i");
+      if (icon) icon.className = "fa-solid fa-bars";
+    });
+  };
+
+  window.toggleMobileMenu = function(e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    const navLinks = document.querySelector(".nav-links");
+    let navOverlay = document.querySelector(".nav-overlay");
+    const toggles = document.querySelectorAll(".menu-toggle, #menu-toggle-btn");
+
+    if (!navOverlay) {
+      navOverlay = document.createElement("div");
+      navOverlay.className = "nav-overlay";
+      document.body.appendChild(navOverlay);
+    }
+    navOverlay.onclick = window.closeMobileMenu;
+
     if (!navLinks) return;
     const isOpen = navLinks.classList.toggle("active");
-    if (overlay) overlay.classList.toggle("active", isOpen);
+    navOverlay.classList.toggle("active", isOpen);
     document.body.classList.toggle("menu-open", isOpen);
 
-    if (toggle) {
-      const icon = toggle.querySelector("i");
-      if (icon) {
-        icon.className = isOpen ? "fa-solid fa-xmark" : "fa-solid fa-bars";
-      }
-    }
-  }
-
-  if (toggle) {
-    toggle.addEventListener("click", (e) => {
-      e.stopPropagation();
-      toggleMobileMenu();
+    toggles.forEach(t => {
+      const icon = t.querySelector("i");
+      if (icon) icon.className = isOpen ? "fa-solid fa-xmark" : "fa-solid fa-bars";
     });
-  }
+  };
+
+  // Register click/touch event listeners on all menu toggles
+  document.querySelectorAll(".menu-toggle, #menu-toggle-btn").forEach(t => {
+    t.addEventListener("click", window.toggleMobileMenu);
+    t.addEventListener("touchstart", (e) => {
+      e.preventDefault();
+      window.toggleMobileMenu(e);
+    }, { passive: false });
+  });
 
   if (overlay) {
-    overlay.addEventListener("click", () => {
-      closeMobileMenu();
-    });
+    overlay.addEventListener("click", window.closeMobileMenu);
   }
 
-  if (navLinks) {
-    // Auto-close menu when clicking any nav item
-    navLinks.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", () => {
-        closeMobileMenu();
-      });
-    });
-  }
+  // Auto-close menu when clicking any nav link
+  document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", window.closeMobileMenu);
+  });
 
   // Close on Escape key press
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
-      closeMobileMenu();
+      window.closeMobileMenu();
     }
   });
 
   // Close menu on window resize if expanded to desktop view
   window.addEventListener("resize", () => {
     if (window.innerWidth > 1024) {
-      closeMobileMenu();
+      window.closeMobileMenu();
     }
   });
 
   /* =========================
-     LIGHT / DARK THEME SYSTEM
+     3-MODE THEME SYSTEM (Dark -> Sunset -> Light)
      ========================= */
-  function applyTheme(theme) {
+  window.applyTheme = function(theme) {
     document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem("portfolio_theme", theme);
 
     document.querySelectorAll(".theme-toggle-btn").forEach(btn => {
-      btn.innerHTML = theme === "light" 
-        ? '<i class="fa-solid fa-fire-flame-curved" style="color:#ff9f43;"></i>' 
-        : '<i class="fa-solid fa-moon" style="color:#00f0ff;"></i>';
-      btn.setAttribute("title", theme === "light" ? "Switch to Cyber Void Theme" : "Switch to Cyber Sunset Theme");
+      if (theme === "dark") {
+        btn.innerHTML = '<i class="fa-solid fa-moon" style="color:#00f0ff;"></i>';
+        btn.setAttribute("title", "Mode 1/3: Cyber Void (Click for Sunset Mode)");
+      } else if (theme === "sunset") {
+        btn.innerHTML = '<i class="fa-solid fa-fire-flame-curved" style="color:#ff9f43;"></i>';
+        btn.setAttribute("title", "Mode 2/3: Cyber Sunset (Click for Platinum Light Mode)");
+      } else {
+        btn.innerHTML = '<i class="fa-solid fa-sun" style="color:#0284c7;"></i>';
+        btn.setAttribute("title", "Mode 3/3: Platinum Light (Click for Cyber Void Mode)");
+      }
     });
-  }
+  };
 
   function initTheme() {
     const saved = localStorage.getItem("portfolio_theme") || "dark";
-    applyTheme(saved);
+    window.applyTheme(saved);
   }
 
   window.toggleTheme = function() {
     const current = document.documentElement.getAttribute("data-theme") || "dark";
-    const next = current === "dark" ? "light" : "dark";
-    applyTheme(next);
+    let next = "sunset";
+    if (current === "dark") next = "sunset";
+    else if (current === "sunset") next = "light";
+    else next = "dark";
+    window.applyTheme(next);
   };
 
   // Inject theme toggle button into navbar dynamically if missing
