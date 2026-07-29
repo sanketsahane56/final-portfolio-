@@ -1053,10 +1053,11 @@ body.menu-open {
 
 /* Sections Base Styling */
 section {
-  padding: 90px 6%;
+  padding: 85px 6%;
   margin: 0;
   width: 100%;
-  border-radius: 0;
+  max-width: 100vw;
+  box-sizing: border-box;
   background: transparent;
   backdrop-filter: none;
   box-shadow: none;
@@ -1065,7 +1066,8 @@ section {
 .section-header {
   text-align: center;
   max-width: 750px;
-  margin: 0 auto 3.5rem auto;
+  margin: 0 auto 3rem auto;
+  box-sizing: border-box;
 }
 
 .section-subtitle {
@@ -1081,16 +1083,19 @@ section {
 }
 
 .section-title {
-  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-size: clamp(1.8rem, 3.5vw, 2.7rem);
   font-weight: 800;
   color: #fff;
-  line-height: 1.2;
+  line-height: 1.25;
   margin-bottom: 0.8rem;
+  overflow-wrap: break-word;
 }
 
 .section-desc {
-  font-size: 1.05rem;
+  font-size: 1.02rem;
   color: var(--text-secondary);
+  line-height: 1.6;
+  overflow-wrap: break-word;
 }
 
 /* Expertise / Core Domains */
@@ -1100,6 +1105,7 @@ section {
   gap: 2rem;
   max-width: 1350px;
   margin: 0 auto;
+  align-items: stretch;
 }
 
 .expertise-card {
@@ -1111,12 +1117,15 @@ section {
   transition: all 0.35s ease;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .expertise-card:hover {
   background: var(--bg-card-hover);
   border-color: var(--glass-border-hover);
-  transform: translateY(-8px);
+  transform: translateY(-6px);
   box-shadow: var(--glass-glow);
 }
 
