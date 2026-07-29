@@ -975,29 +975,56 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Contact form submission
-  const cForm = document.getElementById("contact-form");
-  if (cForm) {
-    cForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      if (typeof emailjs !== 'undefined') {
-        emailjs.sendForm(
-          EMAILJS_SERVICE_ID,
-          EMAILJS_TEMPLATE_ID,
-          this
-        ).then(() => {
-          alert("✅ Message sent successfully!");
-          this.reset();
-        }, (error) => {
-          alert("❌ Message failed to send");
-          console.log(error);
-        });
-      } else {
-        alert("✅ Message sent successfully!");
-        this.reset();
+  // Contact Page Tab Switcher (General Message vs Hire Me Form)
+  window.switchContactTab = function(tabName) {
+    const msgForm = document.getElementById("general-msg-form");
+    const hireForm = document.getElementById("hire-me-form");
+    const msgBtn = document.getElementById("tab-btn-msg");
+    const hireBtn = document.getElementById("tab-btn-hire");
+
+    if (!msgForm || !hireForm) return;
+
+    if (tabName === "hire") {
+      msgForm.style.display = "none";
+      hireForm.style.display = "block";
+      if (msgBtn) msgBtn.classList.remove("active-tab");
+      if (hireBtn) hireBtn.classList.add("active-tab");
+    } else {
+      hireForm.style.display = "none";
+      msgForm.style.display = "block";
+      if (hireBtn) hireBtn.classList.remove("active-tab");
+      if (msgBtn) msgBtn.classList.add("active-tab");
+    }
+  };
+
+  // Check URL hash (#hire or #hire-me) on load or hashchange
+  function checkContactHash() {
+    if (window.location.hash === "#hire" || window.location.hash === "#hire-me") {
+      window.switchContactTab("hire");
+      const formBox = document.querySelector(".contact-card-box");
+      if (formBox) {
+        formBox.scrollIntoView({ behavior: "smooth" });
       }
-    });
+    }
   }
+
+  // Handle select dropdown "Other" choice to reveal custom text inputs
+  window.handleSelectChange = function(selectElem, customInputId) {
+    const customInput = document.getElementById(customInputId);
+    if (!customInput) return;
+    if (selectElem.value === "Other") {
+      customInput.style.display = "block";
+      customInput.required = true;
+      customInput.focus();
+    } else {
+      customInput.style.display = "none";
+      customInput.required = false;
+      customInput.value = "";
+    }
+  };
+
+  checkContactHash();
+  window.addEventListener("hashchange", checkContactHash);
 });
 
 /* Typed.js Headline Initialization */
@@ -1008,7 +1035,7 @@ document.addEventListener("DOMContentLoaded", () => {
       strings: [
         "Artificial Intelligence Engineer",
         "Machine Learning & DL Specialist",
-        "Computer Vision Researcher",
+        "Computer Engineer",
         "Full-Stack Software Developer"
       ],
       typeSpeed: 45,

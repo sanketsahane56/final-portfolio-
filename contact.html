@@ -118,14 +118,18 @@
     <!-- Contact Form Box -->
     <div class="contact-card-box" data-aos="fade-up">
       
-      <div class="connect-header" style="margin-bottom: 2rem;">
-        <span class="connect-badge"><i class="fa-solid fa-comments"></i> Send Message</span>
-        <h3 style="font-size: 1.6rem; color: #fff; margin: 0.8rem 0 0.5rem 0; font-weight: 800;">Initiate Collaboration 🚀</h3>
-        <p style="color: var(--text-secondary); font-size: 0.95rem; margin: 0;">Fill out the form below to deliver a direct message straight to Sanket's inbox.</p>
+      <!-- Contact Mode Switcher Tabs -->
+      <div class="contact-tabs-container">
+        <button type="button" id="tab-btn-msg" onclick="switchContactTab('msg')" class="contact-tab-btn active-tab">
+          <i class="fa-solid fa-envelope"></i> General Message
+        </button>
+        <button type="button" id="tab-btn-hire" onclick="switchContactTab('hire')" class="contact-tab-btn">
+          <i class="fa-solid fa-briefcase"></i> Hire Me / Offer Role 🚀
+        </button>
       </div>
 
       <!-- Platform Icons -->
-      <div class="platform-icons" style="margin-bottom: 2.2rem;">
+      <div class="platform-icons" style="margin-bottom: 2rem;">
         <a href="https://github.com/sanketsahane56" target="_blank" class="icon github" title="GitHub Profile">
           <i class="fa-brands fa-github"></i>
         </a>
@@ -143,22 +147,94 @@
         </a>
       </div>
 
-      <!-- Form -->
-      <form action="https://formsubmit.co/sanketsahane56@gmail.com" method="POST" id="contact-form">
-        <input type="text" name="name" class="contact-input-field" placeholder="Your Full Name *" required>
-        <input type="email" name="email" class="contact-input-field" placeholder="Your Email Address *" required>
-        <input type="text" name="subject" class="contact-input-field" placeholder="Subject / Project Topic">
-        <textarea name="message" class="contact-input-field" style="min-height: 140px; resize: vertical;" placeholder="Your Message..." required></textarea>
+      <!-- Tab 1: General Inquiry Form -->
+      <div id="general-msg-form">
+        <div class="connect-header" style="margin-bottom: 1.5rem;">
+          <span class="connect-badge"><i class="fa-solid fa-comments"></i> Direct Message</span>
+          <h3 style="font-size: 1.5rem; margin: 0.6rem 0 0.4rem 0; font-weight: 800;">Initiate Collaboration 💬</h3>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; margin: 0;">Fill out the form below to deliver a direct message straight to Sanket's inbox.</p>
+        </div>
 
-        <!-- Hidden FormSubmit Settings -->
-        <input type="hidden" name="_subject" value="New Inquiry via AI Portfolio">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
+        <form action="https://formsubmit.co/sanketsahane56@gmail.com" method="POST">
+          <input type="text" name="name" class="contact-input-field" placeholder="Your Full Name *" required>
+          <input type="email" name="email" class="contact-input-field" placeholder="Your Email Address *" required>
+          <input type="text" name="subject" class="contact-input-field" placeholder="Subject / Project Topic">
+          <textarea name="message" class="contact-input-field" style="min-height: 140px; resize: vertical;" placeholder="Your Message..." required></textarea>
 
-        <button type="submit" class="btn-expensive primary-btn" style="width: 100%; justify-content: center; padding: 1.1rem;">
-          <i class="fa-solid fa-paper-plane"></i> Send Direct Message
-        </button>
-      </form>
+          <input type="hidden" name="_subject" value="New Inquiry via AI Portfolio">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+
+          <button type="submit" class="btn-expensive primary-btn" style="width: 100%; justify-content: center; padding: 1.1rem;">
+            <i class="fa-solid fa-paper-plane"></i> Send Direct Message
+          </button>
+        </form>
+      </div>
+
+      <!-- Tab 2: Dedicated HIRE ME Proposal Form -->
+      <div id="hire-me-form" style="display: none;">
+        <div class="connect-header" style="margin-bottom: 1.5rem;">
+          <span class="connect-badge" style="background: rgba(0, 240, 255, 0.15); color: var(--neon-cyan); border-color: var(--neon-cyan);"><i class="fa-solid fa-user-check"></i> Job & Project Proposal</span>
+          <h3 style="font-size: 1.5rem; margin: 0.6rem 0 0.4rem 0; font-weight: 800;">Hire Sanket Sahane 💼</h3>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; margin: 0;">Recruiting for a position or looking for custom AI/Software solutions? Submit role details below.</p>
+        </div>
+
+        <form action="https://formsubmit.co/sanketsahane56@gmail.com" method="POST">
+          <div class="contact-input-grid">
+            <input type="text" name="Recruiter_Name" class="contact-input-field" placeholder="Your Full Name *" required>
+            <input type="text" name="Company_Organization" class="contact-input-field" placeholder="Company / Organization Name *" required>
+          </div>
+
+          <div class="contact-input-grid">
+            <input type="email" name="Official_Email" class="contact-input-field" placeholder="Official Email Address *" required>
+            <input type="tel" name="Phone_Number" class="contact-input-field" placeholder="Contact Phone / WhatsApp (Optional)">
+          </div>
+
+          <div class="contact-input-grid">
+            <!-- Target Role Dropdown & Dynamic Write-in Field -->
+            <div>
+              <select name="Target_Role" class="contact-input-field" required onchange="handleSelectChange(this, 'custom-role-input')" style="cursor: pointer; background: var(--bg-card);">
+                <option value="" disabled selected>Target Position / Role Offered *</option>
+                <option value="AI & Machine Learning Engineer">AI & Machine Learning Engineer</option>
+                <option value="Data Scientist / Analytics Specialist">Data Scientist / Analytics Specialist</option>
+                <option value="Full Stack Software Engineer">Full Stack Software Engineer</option>
+                <option value="Python Backend Engineer">Python Backend Engineer</option>
+                <option value="Computer Vision Specialist">Computer Vision Specialist</option>
+                <option value="AI Research Intern / Junior Role">AI Research Intern / Junior Role</option>
+                <option value="Freelance / Custom Project Contract">Freelance / Custom Project Contract</option>
+                <option value="Other">Other (Write Custom Position below)...</option>
+              </select>
+              <input type="text" id="custom-role-input" name="Custom_Target_Role" class="contact-input-field" placeholder="✍️ Enter Custom Position / Role Name *" style="display: none; border-color: var(--neon-cyan); margin-top: -0.4rem;">
+            </div>
+
+            <!-- Work Type Dropdown & Dynamic Write-in Field -->
+            <div>
+              <select name="Engagement_Type" class="contact-input-field" required onchange="handleSelectChange(this, 'custom-work-input')" style="cursor: pointer; background: var(--bg-card);">
+                <option value="" disabled selected>Work / Engagement Type *</option>
+                <option value="Full-Time Position">Full-Time Position</option>
+                <option value="Part-Time Position">Part-Time Position</option>
+                <option value="Remote Contract">Remote Contract</option>
+                <option value="Freelance Project">Freelance Project</option>
+                <option value="Internship / Trainee">Internship / Trainee</option>
+                <option value="Other">Other (Write Custom Work Type below)...</option>
+              </select>
+              <input type="text" id="custom-work-input" name="Custom_Engagement_Type" class="contact-input-field" placeholder="✍️ Enter Custom Work / Engagement Type *" style="display: none; border-color: var(--neon-cyan); margin-top: -0.4rem;">
+            </div>
+          </div>
+
+          <input type="text" name="Offered_Budget_Salary" class="contact-input-field" placeholder="Offered Salary / Budget Range (e.g. ₹6,00,000/yr or $40/hr)">
+
+          <textarea name="Role_Responsibilities_Description" class="contact-input-field" style="min-height: 140px; resize: vertical;" placeholder="Provide details about the role, key responsibilities, or project requirements *" required></textarea>
+
+          <input type="hidden" name="_subject" value="💼 HIRE ME PROPOSAL: New Role Offer via Portfolio">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+
+          <button type="submit" class="btn-expensive primary-btn" style="width: 100%; justify-content: center; padding: 1.1rem; background: linear-gradient(135deg, #00f0ff, #8a2be2);">
+            <i class="fa-solid fa-briefcase"></i> Submit Hiring Proposal
+          </button>
+        </form>
+      </div>
 
     </div>
   </section>
